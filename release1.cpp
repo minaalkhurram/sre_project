@@ -159,7 +159,8 @@ public:
 	    return false;
 	}
 	void select_slot(){
-		
+			system("cls");
+			displayschedule();
 		cout<<"Enter the slot number/numbers you want to select and press enter to exit: "<<endl;
 		char check='\0';
 		vector<int> number;
@@ -203,7 +204,9 @@ public:
 		
 	}
 	void generate_ratecard(vector<int>& arr){
-		cout<<"\t\t\tYour Selected time slots with prices are as follows: "<<endl;
+		system("cls");
+  
+		cout<<"\n\n\t\t\tYour Selected time slots with prices are as follows: "<<endl;
 		for(int i=0; i<arr.size(); i++){
 			slotlist[arr[i]-1].occupied==true;
 			cout << "\t\tSlot number : " << slotlist[arr[i]-1].slotnumber << " ";
@@ -219,7 +222,7 @@ public:
 		
 	}
 	void getmenu(){
-		cout<<"\t\t\t\tWelcome to airtime sales system!!"<<endl;
+		cout<<"\n\n\n\t\t\t\tWelcome to airtime sales system!!"<<endl;
 		cout<<"\t\t\tPress 1 to get schedule of available slots."<<endl;
 		cout<<"\t\t\tPress 2 to select slots."<<endl;
 		
@@ -232,8 +235,7 @@ public:
 			
 		}
 		if(option==2){
-			system("cls");
-			displayschedule();
+		
 			select_slot();
 		}
 		
