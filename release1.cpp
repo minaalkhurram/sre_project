@@ -211,7 +211,7 @@ public:
 
 		cout << "\n\n\t\t\tYour Selected time slots with prices are as follows: " << endl;
 		for (int i = 0; i < arr.size(); i++) {
-			slotlist[arr[i] - 1].occupied == true;
+			slotlist[arr[i] - 1].occupied = true;
 			cout << "\t\tSlot number : " << slotlist[arr[i] - 1].slotnumber << " ";
 			cout << " \t\tSlot time: ";
 			slotlist[arr[i] - 1].mytime.displayTheCurrentTime();
@@ -267,6 +267,7 @@ public:
 					double new_price = 0;
 					cin >> new_price;
 					slotlist[int_slot_number - 1].price = new_price;
+					cout<<"Price update!"<<endl;
 					if (slot_number == "e") {
 						check = true;
 					}
@@ -291,7 +292,11 @@ int main()
 {
 	idkname A;
 	A.getmenu();
+	system("cls");
+	cout<<"Updated Schedule"<<endl;
+	A.displayschedule();
 	
 
 
 }
+
