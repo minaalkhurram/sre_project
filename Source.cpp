@@ -4,55 +4,61 @@
 #include<fstream>
 #include<conio.h>
 #include<string.h>
+#include<cmath>
+#include <iomanip>
+#include <cstdio>
+
 using namespace std;
 
-
-class clockk {
+class Clock
+{
+	public:
+	double hour, minute, second; 
 public:
-	int second;
-	int hr;
-	int min;
-
-	clockk()
-	{
-		hr = 0;
-		second = 0;
-		min = 0;
-	}
-	void increment()
-	{
-		if (second < 60)
-			second = second + 5;
-		 if (second == 60)
-		{
-			if (min < 59)
-				min++;
-			else
-				hr++;
-		}
-	}
-	void operator=(clockk& x)
-	{
-		x.hr = this->hr;
-		x.min = this->min;
-		x.second = this->second;
-	}
-	void display()
-	{
-		
-		cout << "0"<<hr << ":" <<"0"<< min << ":" <<"0"<< second;
-		
-	}
-
-
+	Clock(); 
+	Clock(double hour, double minute = 00, double second = 00);
+	void tick();
+	void adder(double hour, double minute, double second); 
+	void displayTheCurrentTime(); 
 };
+Clock::Clock(): hour(00), minute(00), second(00) {}
+
+Clock::Clock(double hour, double minute, double second): hour(hour), minute(minute), second(second) {}
+
+void Clock::tick() {
+
+	if (second < 59 && minute <= 59 && hour <= 23){
+		second++;
+	}
+	else if (second >= 59 && minute < 59 && hour <= 23) {
+		second = 00;
+		minute++;
+	}
+	else if (second >= 59 && minute >= 59 && hour < 23){
+		minute = 00;
+		second = 00;
+		hour++;
+	}
+	else{
+		minute = 00;
+		second = 00;
+		hour = 00;
+		cout << "We've got a new day, hopefully it's not monday!\n";
+	}
+}
+void Clock::displayTheCurrentTime() {
+	if (second <= 59 && minute <= 59 && hour <= 23)
+	{
+		cout << setw(2) << setfill('0') << hour << ":" << setw(2) << setfill('0') << minute << ":" << setw(2) << setfill('0') << second << " - "<< setw(2) << setfill('0') << hour << ":" << setw(2) << setfill('0') << minute << ":" << setw(2) << setfill('0')<<second+05<<endl;
+	}
+}
 struct slot {
 public:
 	float price;
 	bool occupied;
 	string slottime;
 	int slotnumber;
-	clockk mytime;
+	Clock mytime;
 	slot()
 	{
 		price = 2;
@@ -65,7 +71,7 @@ public:
 class idkname {
 	int totalmins;
 	int totalslots;
-	clockk times;
+	Clock times;
 	vector<slot> slotlist;
 public:
 	idkname()
@@ -79,16 +85,18 @@ public:
 	{
 		cout << " SLOT SCHEDULE \n";
 
-		for (int i = 0; i < slotlist.size(); i++)
+		for (int i = 0,  k=0; i < slotlist.size(); i++)
 		{
 			if (slotlist[i].occupied == false)
 			{
 				cout << "Slot number : " << slotlist[i].slotnumber << " ";
-				cout << " Slot time : ";
-				slotlist[i].mytime.display();
+				cout << " Slot time: ";
+				slotlist[i].mytime.displayTheCurrentTime();
               	cout<< " " << " Slot Price :" << slotlist[i].price;
 				//cout << "  Slot status : " << slotlist[i].occupied;
 				cout << endl;
+				
+				
 			}
 		}
 
@@ -104,7 +112,7 @@ public:
 		int secs = 5;
 		while (!fin.eof())
 		{
-			times.increment();
+			times.tick();
 			slot nn;
 			fin >> line;
 		
@@ -121,8 +129,8 @@ public:
 			fin.get(tmp);
 			fin >> line;
 			nn.price = line;
-	
-			cout << times.second<<" ";
+	        
+			//cout << times.second<<" ";
 			nn.mytime = times;
 			slotlist.push_back(nn);
 			totalslots++;
