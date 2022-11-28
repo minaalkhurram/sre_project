@@ -84,13 +84,13 @@ public:
 	}
 	void displayschedule()
 	{
-		cout << " SLOT SCHEDULE \n";
+		cout << "\t\t\t\t SLOT SCHEDULE \n";
 
 		for (int i = 0; i < slotlist.size(); i++)
 		{
 			if (slotlist[i].occupied == false)
 			{
-				cout << "Slot number : " << slotlist[i].slotnumber << " ";
+				cout << "\t\tSlot number : " << slotlist[i].slotnumber << " ";
 				cout << " Slot time: ";
 				slotlist[i].mytime.displayTheCurrentTime();
 				cout << " " << " Slot Price :" << slotlist[i].price;
@@ -211,7 +211,7 @@ public:
 
 		cout << "\n\n\t\t\tYour Selected time slots with prices are as follows: " << endl;
 		for (int i = 0; i < arr.size(); i++) {
-			slotlist[arr[i] - 1].occupied = true;
+			slotlist[arr[i] - 1].occupied == true;
 			cout << "\t\tSlot number : " << slotlist[arr[i] - 1].slotnumber << " ";
 			cout << " \t\tSlot time: ";
 			slotlist[arr[i] - 1].mytime.displayTheCurrentTime();
@@ -253,36 +253,47 @@ public:
 		string slot_number;
 		string exit;
 		bool check = false;
-
+		system("cls");
+		displayschedule();
+		//cout << slotlist.size();
 			while (!check)
 			{
-				cout << "Enter the slot number you want to update price of" << " or " << "Press 'e' to exit" << endl;
+				cout << "\t\tEnter the slot number you want to update price of" << " or " << "Press 'e' to exit" << endl;
 				cin >> slot_number;
 				if (slot_number == "e") {
 					break;
 				}
 				int int_slot_number = stoi(slot_number);
 				if (valid(int_slot_number)) {
-					cout << "Enter new Price" << endl;
+					cout << "\t\tEnter new Price" << endl;
 					double new_price = 0;
 					cin >> new_price;
-					slotlist[int_slot_number - 1].price = new_price;
-					cout<<"Price update!"<<endl;
+					int i;
+					for ( i = 0; i < slotlist.size(); i++)
+					{
+						if (int_slot_number == slotlist[i].slotnumber) {
+							slotlist[i].price = new_price;
+
+						}
+					}
 					if (slot_number == "e") {
 						check = true;
 					}
+					else {
+						
+						cout << "\t\tThe price has been updated to" << endl;
+						cout << "\t\tSlot number : " << slotlist[i-1].slotnumber << " ";
+						cout << " Slot time: ";
+						slotlist[i-1].mytime.displayTheCurrentTime();
+						cout <<" Slot price :" << slotlist[i - 1].price << endl;
+					}
 				}
 				else {
-					cout << "Invalid slot number!" << " Enter again: " << endl;
+					cout << "\t\tInvalid slot number!" << " Enter again: " << endl;
 					
 				}
 			}
-				for (int i = 0; i < slotlist.size(); i++)
-				{
-					cout << slotlist[i].slotnumber << " ";
-					slotlist[i].mytime.displayTheCurrentTime();
-					cout << " " << slotlist[i].price << endl;
-				}
+			displayschedule();
 			
 		//}
 	}
@@ -292,11 +303,7 @@ int main()
 {
 	idkname A;
 	A.getmenu();
-	system("cls");
-	cout<<"Updated Schedule"<<endl;
-	A.displayschedule();
 	
 
 
 }
-
