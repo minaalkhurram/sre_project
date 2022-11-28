@@ -69,7 +69,6 @@ public:
 		slottime = "00:00:00";
 
 	}
-
 };
 class idkname {
 	int totalmins;
@@ -103,8 +102,6 @@ public:
 
 			}
 		}
-
-
 	}
 
 	void readslots()
@@ -136,8 +133,6 @@ public:
 			fin.get(tmp);
 			fin >> line;
 			nn.price = line;
-
-			//cout << times.second<<" ";
 			nn.mytime = times;
 			slotlist.push_back(nn);
 			totalslots++;
@@ -147,8 +142,6 @@ public:
 				totalmins++;
 				count = 0;
 			}
-
-
 		}
 	}
 	bool valid(int num) {
@@ -157,7 +150,6 @@ public:
 			if (num == slotlist[i].slotnumber && slotlist[i].occupied == false) {
 				return true;
 			}
-
 		}
 		return false;
 	}
@@ -175,6 +167,7 @@ public:
 			cin >> num;
 			if (valid(num)) {
 				bool already_selected = false;
+				
 				for (int i = 0; i < number.size(); i++)
 				{
 					if (num == number[i]) {
@@ -188,12 +181,10 @@ public:
 					cout << "Selected" << endl;
 					cout << "Enter e to exit or any key to continue selecting : ";
 					cin >> check;
-
 					if (check == 'e') {
 						exit = true;
 					}
-				}
-				
+				}		
 			}
 			else {
 				cout << "Invalid slot number!" << " Enter again: " << endl;
@@ -205,8 +196,21 @@ public:
 		system("cls");
 		cout << "\t\tYou have selected your slots that are: " << endl;
 		for (int i = 0; i < number.size(); i++) {
-			cout << "\t\t\t\tSlot: " << number[i] << endl;
+			for (int j = 0; j < slotlist.size(); j++)
+			{
+				if (number[i] == slotlist[j].slotnumber) {
+					cout << "\t\tSlot number : " << slotlist[j].slotnumber << " ";
+					cout << " Slot time: ";
+					slotlist[j].mytime.displayTheCurrentTime();
+					cout << " Slot price :" << slotlist[j].price;
+					if (slotlist[j].price == 50) {
+						cout << "  Peak time!!" << endl;
+					}
+					cout << endl;
+				}
+			}
 		}
+		cout << endl;
 		char opt;
 		
 		cout << "\t\tPress Y to confirm your selection and generate rate card." << endl;
@@ -218,8 +222,6 @@ public:
 		if (opt == 'X') {
 			this->select_slot();
 		}
-
-
 	}
 	void generate_ratecard(vector<int>& arr) {
 		system("cls");
@@ -273,7 +275,7 @@ public:
 		//cout << slotlist.size();
 			while (!check)
 			{
-				cout << "\t\tEnter the slot number you want to update price of" << " or " << "Press 'e' to exit" << endl;
+				cout << endl << "\t\tEnter the slot number you want to update price of" << " or " << "Press 'e' to exit" << endl;
 				cin >> slot_number;
 				if (slot_number == "e") {
 					break;
@@ -283,13 +285,15 @@ public:
 					cout << "\t\tEnter new Price" << endl;
 					double new_price = 0;
 					cin >> new_price;
-					int i;
-					for ( i = 0; i < slotlist.size(); i++)
+					int i = 0;
+					while(slotlist.size())
 					{
+					
 						if (int_slot_number == slotlist[i].slotnumber) {
 							slotlist[i].price = new_price;
-
+							break;
 						}
+						i++;
 					}
 					if (slot_number == "e") {
 						check = true;
@@ -297,10 +301,10 @@ public:
 					else {
 						
 						cout << "\t\tThe price has been updated to" << endl;
-						cout << "\t\tSlot number : " << slotlist[i-1].slotnumber << " ";
+						cout << "\t\tSlot number : " << slotlist[i].slotnumber << " ";
 						cout << " Slot time: ";
-						slotlist[i-1].mytime.displayTheCurrentTime();
-						cout <<" Slot price :" << slotlist[i - 1].price << endl;
+						slotlist[i].mytime.displayTheCurrentTime();
+						cout <<" Slot price :" << slotlist[i].price << endl;
 					}
 				}
 				else {
@@ -309,8 +313,6 @@ public:
 				}
 			}
 			displayschedule();
-			
-		//}
 	}
 };
 
@@ -320,6 +322,4 @@ int main()
 	A.getmenu();
 	system("pause");
 	return 0;
-
-
 }
