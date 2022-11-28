@@ -170,16 +170,30 @@ public:
 		int num = 0;
 		int i = 0;
 		bool exit = false;
+		
 		while (check != 'e') {
 			cin >> num;
 			if (valid(num)) {
-				number.push_back(num);
-				cout << "Selected" << endl;
-				cout << "Enter e to exit: ";
-				cin >> check;
-				if (check == 'e') {
-					exit = true;
+				bool already_selected = false;
+				for (int i = 0; i < number.size(); i++)
+				{
+					if (num == number[i]) {
+						already_selected = true;
+						cout << "The slot is already selected" << endl;
+						break;
+					}
 				}
+				if (already_selected == false) {
+					number.push_back(num);
+					cout << "Selected" << endl;
+					cout << "Enter e to exit: ";
+					cin >> check;
+
+					if (check == 'e') {
+						exit = true;
+					}
+				}
+				
 			}
 			else {
 				cout << "Invalid slot number!" << " Enter again: " << endl;
@@ -188,14 +202,15 @@ public:
 				break;
 			}
 		}
-		cout << "You have selected your slots that are: " << endl;
+		system("cls");
+		cout << "\t\tYou have selected your slots that are: " << endl;
 		for (int i = 0; i < number.size(); i++) {
-			cout << "Slot: " << number[i] << endl;
+			cout << "\t\t\t\tSlot: " << number[i] << endl;
 		}
 		char opt;
-		system("cls");
-		cout << "\t\t\tPress Y to confirm your selection and generate rate card." << endl;
-		cout << "\t\t\tPress X to change your selected slots" << endl;
+		
+		cout << "\t\tPress Y to confirm your selection and generate rate card." << endl;
+		cout << "\t\tPress X to change your selected slots" << endl;
 		cin >> opt;
 		if (opt == 'Y') {
 			generate_ratecard(number);
