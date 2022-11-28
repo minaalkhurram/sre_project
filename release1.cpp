@@ -195,10 +195,27 @@ public:
 		}
 		system("cls");
 		cout << "\t\tYou have selected your slots that are: " << endl;
-		for (int i = 0; i < number.size(); i++) {
-			for (int j = 0; j < slotlist.size(); j++)
-			{
-				if (number[i] == slotlist[j].slotnumber) {
+		generate_ratecard(number);
+		cout << endl;
+		char opt;
+		
+		cout << "\t\tPress Y to confirm your selection and generate rate card." << endl;
+		cout << "\t\tPress X to change your selected slots" << endl;
+		cin >> opt;
+		if (opt == 'y'||opt=='Y') {
+			generate_ratecard(number);
+		}
+		if (opt=='x' || opt == 'X') {
+			this->select_slot();
+		}
+	}
+	void generate_ratecard(vector<int>& arr) {
+		system("cls");
+
+		cout << "\n\n\t\t\tYour Selected time slots with prices are as follows: " << endl;
+		for (int i = 0; i < arr.size(); i++) {
+			for (int j = 0; j < slotlist.size(); j++) {
+				if (arr[i] == slotlist[j].slotnumber) {
 					cout << "\t\tSlot number : " << slotlist[j].slotnumber << " ";
 					cout << " Slot time: ";
 					slotlist[j].mytime.displayTheCurrentTime();
@@ -210,36 +227,7 @@ public:
 				}
 			}
 		}
-		cout << endl;
-		char opt;
 		
-		cout << "\t\tPress Y to confirm your selection and generate rate card." << endl;
-		cout << "\t\tPress X to change your selected slots" << endl;
-		cin >> opt;
-		if (opt == 'Y') {
-			generate_ratecard(number);
-		}
-		if (opt == 'X') {
-			this->select_slot();
-		}
-	}
-	void generate_ratecard(vector<int>& arr) {
-		system("cls");
-
-		cout << "\n\n\t\t\tYour Selected time slots with prices are as follows: " << endl;
-		for (int i = 0; i < arr.size(); i++) {
-			slotlist[arr[i] - 1].occupied == true;
-			cout << "\t\tSlot number : " << slotlist[arr[i] - 1].slotnumber << " ";
-			cout << " \t\tSlot time: ";
-			slotlist[arr[i] - 1].mytime.displayTheCurrentTime();
-			cout << " " << " \t\tSlot Price :" << slotlist[arr[i] - 1].price;
-			if (slotlist[arr[i] - 1].price == 50) {
-				cout << "  \tPeak time!!" << endl;
-			}
-			//cout << "  Slot status : " << slotlist[i].occupied;
-			cout << endl;
-		}
-
 	}
 	void getmenu() {
 		cout << "\n\n\n\t\t\t\tWelcome to airtime sales system!!" << endl;
