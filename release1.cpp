@@ -186,7 +186,7 @@ public:
 				if (already_selected == false) {
 					number.push_back(num);
 					cout << "Selected" << endl;
-					cout << "Enter e to exit: ";
+					cout << "Enter e to exit or any key to continue selecting : ";
 					cin >> check;
 
 					if (check == 'e') {
