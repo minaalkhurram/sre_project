@@ -56,7 +56,6 @@ void Clock::displayTheCurrentTime() {
 	}
 }
 struct slot {
-public:
 	float price;
 	bool occupied;
 	string slottime;
