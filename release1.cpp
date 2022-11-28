@@ -318,7 +318,8 @@ int main()
 {
 	idkname A;
 	A.getmenu();
-	
+	system("pause");
+	return 0;
 
 
 }
