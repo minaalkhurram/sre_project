@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MENU</title>
+    <link rel="stylesheet" href="menu_style.css">
+<script type="text/javascript">
+function myFunction(){
+    const btn = document.getElementById('btn');
+    document.getElementById("wtx").innerHTML = "  &emsp; &emsp;  &emsp; &emsp;  Slot number  &emsp;  &emsp;      Slot time     &emsp; &nbsp;&nbsp;      Slot Price  <br><br>  &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   1   &emsp;  &emsp;  &emsp; &emsp;  00:00:01 - 00:00:06   &emsp;  &emsp;        $30<br>&emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;  3  &emsp;  &emsp;  &emsp; &emsp;        00:00:03 - 00:00:08     &emsp;  &emsp;            $60<br>            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   4        &emsp;  &emsp;  &emsp; &emsp;     00:00:04 - 00:00:09    &emsp;  &emsp;          $30<br>  &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;    5   &emsp;  &emsp;  &emsp; &emsp;          00:00:05 - 00:00:10     &emsp;  &emsp;  $50 &nbsp; Peak time!! <br> &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp; 8     &emsp;  &emsp;  &emsp; &emsp;        00:00:08 - 00:00:13     &emsp;  &emsp; $30 <br>   &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   9   &emsp;  &emsp;  &emsp; &emsp;          00:00:09 - 00:00:14     &emsp;  &emsp; $50 &nbsp; Peak time!! <br>    &emsp;  &emsp;  &emsp; &emsp; ";
+btn.innerHTML = 'UPDATED!';
+}
+</script>
+</head>
+
+<body>
+    <header>
+        <h1>CURRENT PRICES </h1>
+
+    </header>
+    <div>
+     
+        <h1><br>  Available Slots </h1>
+        <p id="wtx">
+            &emsp; &emsp;  &emsp; &emsp;  Slot number  &emsp;  &emsp;      Slot time     &emsp; &nbsp;&nbsp;      Slot Price  <br><br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   1   &emsp;  &emsp;  &emsp; &emsp;  00:00:01 - 00:00:06   &emsp;  &emsp;        $20<br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;  3  &emsp;  &emsp;  &emsp; &emsp;        00:00:03 - 00:00:08     &emsp;  &emsp;            $20<br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   4        &emsp;  &emsp;  &emsp; &emsp;     00:00:04 - 00:00:09    &emsp;  &emsp;          $30<br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;    5   &emsp;  &emsp;  &emsp; &emsp;          00:00:05 - 00:00:10     &emsp;  &emsp;  $50 &nbsp; Peak time!! <br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp; 8     &emsp;  &emsp;  &emsp; &emsp;        00:00:08 - 00:00:13     &emsp;  &emsp; $30 <br>
+            &emsp; &emsp;  &emsp; &emsp; &emsp;&emsp;   9   &emsp;  &emsp;  &emsp; &emsp;          00:00:09 - 00:00:14     &emsp;  &emsp; $50 &nbsp; Peak time!! <br>
+         &emsp;  &emsp;  &emsp; &emsp; 
+           <h1>  Select Slots To Change Price  </h1><br> 
+           <form id="frm1" action="/action_page.php">
+                <label for="fname">Enter Slot Number :</label>
+                <input type="text" id="fname" name="fname" ><br><br>
+              </form>
+              <form id="frm2" action="/action_page.php">
+                <label for="fname">Enter New price :</label>
+                <input type="text" id="fname2" name="fname1" ><br><br>
+              </form>
+              <button  onclick="myFunction()" id="btn">CHANGE PRICE</button>
+            
+        </p>
+    </div>
+ 
+  
+
+  
+
+</body>
+
+</html>

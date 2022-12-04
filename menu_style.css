@@ -1,0 +1,117 @@
+body{
+    background-color:rgb(186, 204, 230);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    padding-bottom: 80px;
+}
+html{
+    height:100%;
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    font-size: 40px;
+    padding-top:20px;
+    margin-top: 10px;
+    color:rgb(222, 222, 233);
+    text-align: center;
+}
+
+header{
+    width:1000px;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: 10px 10px rgba(7, 7, 7, 0.555);
+    background-color: rgba(4, 1, 19, 0.505);
+}
+
+div{
+    height: 600px;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    padding-top: 1Opx;
+    text-align: center;
+    box-shadow: 10px 10px rgba(7, 7, 7, 0.555);
+    background-color: rgba(4, 1, 19, 0.505);
+}
+div h1
+{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    font-size: 25px;
+    padding-top:20px;
+    color:rgb(222, 222, 233);
+    text-align:center;
+    padding-top: 10px;;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+
+}
+div p
+{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    line-height:25px;
+    font-weight: lighter;
+    font-size: 20px;
+    color:rgb(222, 222, 233);
+    text-align: justify;
+    margin-left:40px;
+    margin-right: 10px;
+
+    padding-top: 5px;
+    margin-top: 10px;;
+    text-transform: uppercase;
+}
+label
+{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    line-height:20px;
+    font-weight: lighter;
+    font-size: 20px;
+    color:rgb(222, 222, 233);
+    text-align: justify;
+    margin-left:40px;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 10px;;
+  
+
+}
+.nest
+{
+    height:200px;
+    width: 200px;
+
+    background-size:cover;
+    position: absolute;
+    border-radius: 20px;
+ margin-left: 550px ;
+ box-shadow: none;
+ margin-top: 50px;
+
+}
+main h1{ font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    font-size: 25px;
+    padding-top:20px;
+    color:rgb(222, 222, 233);
+    text-align:left;
+    padding-bottom: 10px;
+    margin-left: 25px;
+
+    
+}
